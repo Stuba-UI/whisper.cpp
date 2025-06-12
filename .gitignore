@@ -1,3 +1,5 @@
+# --- Existing project rules ---
+
 *.o
 *.a
 *.d
@@ -61,3 +63,28 @@ cmake-build-debug/
 local.properties
 .log
 .exe
+
+# --- Additions for assistantai (Python + AI tooling) ---
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build/packaging artifacts
+*.spec
+*.egg-info/
+dist/
+
+# LLM/AI model binaries
+*.bin
+
+# Local vector DB (Chroma)
+scripts/chroma_db/
+
+# OCR dependencies (Tesseract)
+scripts/Tesseract-OCR/
+
+# Images and screenshots
+*.png
