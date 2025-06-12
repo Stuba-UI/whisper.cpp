@@ -1,4 +1,137 @@
-# whisper.cpp
+whisper.cpp (Forked & Extended)
+This project is a fork of whisper.cpp by Georgi Gerganov.
+The original license and credits apply.
+
+Below you'll find the original README, followed by a detailed description of this repo's Multimodal AI Assistant extension.
+
+🧠 Multimodal AI Assistant: Whisper.cpp + LLaMA 3 8B + ChromaDB + Tesseract OCR
+Port of OpenAI's Whisper model in C/C++, extended with multimodal AI features using Python and LangChain.
+
+This project transforms whisper.cpp into a local, privacy-focused AI assistant capable of:
+
+Voice interaction via speech recognition
+Conversational AI via LLaMA 3 8B
+On-screen OCR to read text from your screen
+Context-aware question answering using ChromaDB
+Everything runs locally, with no internet or cloud dependencies once models are set up.
+
+🚀 Features
+✅ Wake word activation (e.g., “hey assistant”)
+✅ Fast local speech-to-text with whisper.cpp
+✅ OCR screen reading via Tesseract (multi-language)
+✅ Natural conversation with LLaMA 3 (Ollama)
+✅ Vector-based memory using ChromaDB
+✅ Text-to-speech replies
+✅ Quit shortcut: Ctrl + Shift + Alt + L
+🧩 Components Used
+Component	Role
+whisper.cpp	Audio transcription engine (C++)
+Tesseract OCR	On-screen text extraction (multi-lang)
+LLaMA 3 8B	LLM for chat and understanding
+ChromaDB	Vector-based memory retrieval
+LangChain	LLM orchestration framework
+pyttsx3	Local speech synthesis (TTS)
+Python script	Brains of the assistant
+🛠️ Installation
+1. Clone the Repository
+bash
+git clone https://github.com/your-username/whisper.cpp
+cd whisper.cpp
+⚠️ Replace your-username with your GitHub username if you forked the repo.
+
+2. Build whisper.cpp (Windows)
+PowerShell
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+Ensure whisper-cli.exe is created at:
+
+Code
+<project>/build/bin/Release/whisper-cli.exe
+3. Install Tesseract OCR
+Download Tesseract OCR
+Install to:
+Code
+<project>/scripts/Tesseract-OCR/tesseract.exe
+Make sure you have language data for: eng, rus, ukr, pol
+4. Set Up Python Environment
+bash
+cd scripts
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+requirements.txt:
+
+Code
+SpeechRecognition
+pyttsx3
+pytesseract
+Pillow
+mss
+keyboard
+langchain
+langchain_community
+langchain_ollama
+langchain_core
+torch
+transformers
+5. Install Ollama + LLaMA 3
+Install Ollama
+Run once:
+bash
+ollama pull llama3
+▶️ Usage
+Run the assistant:
+
+bash
+python scripts/assistantai.py
+Then:
+
+Say "hey assistant" to trigger it
+Ask: "What's on my screen?", "Read the screen", etc.
+Ask questions from memory or knowledge base
+Say "exit" to close
+Press Ctrl + Shift + Alt + L to force quit anytime
+📁 Project Structure
+Code
+whisper.cpp/
+├── build/bin/Release/whisper-cli.exe   # Whisper C++ binary
+├── scripts/
+│   ├── assistantai.py                  # Main assistant logic
+│   ├── chroma_db/                      # Persistent vector memory
+│   └── Tesseract-OCR/                  # OCR engine
+├── dist/                               # Optional build outputs
+│   ├── assistantai.exe
+│   └── chroma_db/
+└── requirements.txt
+❗ Troubleshooting
+Microphone not detected? Check permissions.
+Tesseract OCR not found? Ensure correct path in script.
+whisper-cli.exe missing? Build whisper.cpp first.
+Ollama not working? Confirm llama3 model is available.
+Errors in assistantai.py? Check all paths and model files exist.
+🧾 License
+This project is based on multiple open-source tools. Respect their licenses individually:
+
+whisper.cpp — MIT License
+Tesseract OCR — Apache License 2.0
+Ollama — https://ollama.com
+ChromaDB — Apache 2.0
+You are free to modify and distribute this integration under the terms of the MIT License.
+
+📌 Disclaimer
+This project is for educational and personal use only.
+It is not affiliated with Meta, OpenAI, or any other company.
+Use responsibly and in accordance with local laws and licenses of each tool.
+
+📚 References
+whisper.cpp
+Ollama
+LangChain
+Tesseract OCR
+ChromaDB
+<details> <summary>Click to expand the original whisper.cpp README</summary> # whisper.cpp
 
 ![whisper.cpp](https://user-images.githubusercontent.com/1991296/235238348-05d0f6a4-da44-4900-a1de-d0707e75b763.jpeg)
 
@@ -844,3 +977,5 @@ If you have any kind of feedback about this project feel free to use the Discuss
 You can use the [Show and tell](https://github.com/ggml-org/whisper.cpp/discussions/categories/show-and-tell) category
 to share your own projects that use `whisper.cpp`. If you have a question, make sure to check the
 [Frequently asked questions (#126)](https://github.com/ggml-org/whisper.cpp/discussions/126) discussion.
+ </details>
+
